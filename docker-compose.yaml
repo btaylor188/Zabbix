@@ -67,6 +67,15 @@ services:
     depends_on: [zabbix-server]
     networks: [zbx-net]
 
+  zabbix-agent:
+    image: zabbix/zabbix-agent2:alpine-7.0-latest
+    environment:
+      ZBX_HOSTNAME: Zabbix server     # must match the built-in "Zabbix server" host
+      ZBX_SERVER_HOST: zabbix-server  # allowed for passive checks + target for active checks
+    depends_on: [zabbix-server]
+    restart: unless-stopped
+    networks: [zbx-net]
+
 networks:
   zbx-net:
     name: zbx-net
