@@ -32,6 +32,7 @@ services:
       POSTGRES_DB: zabbix
     volumes:
       - ./pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
     networks: [zbx-net]
 
   zabbix-server:
@@ -44,6 +45,7 @@ services:
     ports:
       - "10051:10051"   # proxies/active agents connect here
     depends_on: [postgres]
+    restart: unless-stopped
     networks: [zbx-net]
 
   zabbix-web:
@@ -65,6 +67,7 @@ services:
       - traefik.http.routers.zabbix-web.tls.certresolver=le
       - traefik.http.services.zabbix-web.loadbalancer.server.port=8080
     depends_on: [zabbix-server]
+    restart: unless-stopped
     networks: [zbx-net]
 
   zabbix-agent:
