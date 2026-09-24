@@ -11,9 +11,13 @@ services:
       - --certificatesresolvers.le.acme.email=${ACME_EMAIL}
       - --certificatesresolvers.le.acme.storage=/letsencrypt/acme.json
       - --certificatesresolvers.le.acme.httpchallenge.entrypoint=web
+      - --api.dashboard=true
+      - --api.insecure=true          # dashboard on :8080, no auth; only bound to localhost below
+      - --log.level=${TRAEFIK_LOG_LEVEL:-INFO}
     ports:
       - "80:80"
       - "443:443"
+      - "127.0.0.1:8080:8080"        # dashboard: reach via SSH tunnel
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./letsencrypt:/letsencrypt
