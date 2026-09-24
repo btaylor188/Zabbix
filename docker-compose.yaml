@@ -54,6 +54,8 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: zabbix
       ZBX_SERVER_HOST: zabbix-server
+    volumes:
+      - ./certs:/etc/zabbix/web/certs/
     labels:
       - traefik.enable=true
       - traefik.docker.network=zbx-net
