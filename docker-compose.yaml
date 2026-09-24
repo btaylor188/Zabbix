@@ -56,7 +56,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: zabbix
       ZBX_SERVER_HOST: zabbix-server
-      ZBX_SSO_SETTINGS: "{'baseurl': '${ZBX_WEB_HOST}', 'use_proxy_headers': true}"
+      ZBX_SSO_SETTINGS: '{"baseurl":"https://${ZBX_WEB_HOST}/","use_proxy_headers":true,"security":{"requestedAuthnContext":false}}'
     volumes:
       - ./certs:/etc/zabbix/web/certs/
     labels:
