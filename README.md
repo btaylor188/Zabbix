@@ -37,11 +37,20 @@ from the internet for the Let's Encrypt HTTP challenge.
 
 ## ImmyBot scripts
 
-| File | Role |
-|---|---|
-| `Custom_Zabbix_Agent_Deploy.ps1` | Configuration Task **Set** script |
-| `custom_zabbix_test.ps1` | Configuration Task **Test** script |
-| `Custom_Zabbix_Uninstall.ps1` | Software **Uninstall** script |
+| File | ImmyBot script name | Type | Execution context | Language | Role |
+|---|---|---|---|---|---|
+| `Custom_Zabbix_Agent_Deploy.ps1` | `Custom_Zabbix_Agent_Deploy` | Task | Metascript | PowerShell | Configuration Task **Set** script |
+| `custom_zabbix_test.ps1` | `Custom_Zabbix_Test` | Task | Metascript | PowerShell | Configuration Task **Test** script |
+| `Custom_Zabbix_Uninstall.ps1` | `Custom Zabbix Uninstall` | Software Version Action | Metascript | PowerShell | Software **Uninstall** script |
+
+The timeout is left at the ImmyBot default on all three scripts.
+
+The Test and Set scripts use the **Metascript** execution context because they do work in two
+places:
+
+- **On the endpoint:** agent config, PSK file, and service changes run inside `Invoke-ImmyCommand`.
+- **From ImmyBot itself:** the Zabbix API calls. The Zabbix API endpoint must therefore be reachable
+  from ImmyBot, not only from client networks.
 
 Install the agent itself with ImmyBot's global Zabbix MSI install and dynamic-version scripts; these
 scripts manage configuration only.
