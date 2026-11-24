@@ -1,0 +1,54 @@
+# Zabbix active proxy (SQLite) - site proxy for monitoring.example.com
+# Server is 7.0 LTS -> proxy image must stay on 7.0 until the server is upgraded.
+services:
+  zabbix-proxy:
+    image: zabbix/zabbix-proxy-sqlite3:alpine-7.0-latest
+    container_name: zabbix-proxy
+    hostname: ${ZBX_PROXY_NAME}
+    restart: unless-stopped
+    environment:
+      # --- Identity / connectivity ---
+      ZBX_PROXYMODE: 0                                  # 0 = active (outbound only to server:10051)
+      ZBX_HOSTNAME: ${ZBX_PROXY_NAME}                   # MUST match proxy name in frontend exactly (case-sensitive)
+      ZBX_SERVER_HOST: ${ZBX_SERVER_HOST}               # host or host:port
+
+      # --- Encryption (proxy -> server) ---
+      ZBX_TLSCONNECT: psk
+      ZBX_TLSPSKIDENTITY: ${ZBX_PSK_IDENTITY}
+      ZBX_TLSPSKFILE: /var/lib/zabbix/enc/proxy.psk
+
+      # --- Buffering (7.0+) ---
+      ZBX_PROXYBUFFERMODE: hybrid                       # memory first, spill to SQLite on backlog/outage
+      ZBX_PROXYMEMORYBUFFERSIZE: 32M                    # required >0 for hybrid
+      ZBX_PROXYMEMORYBUFFERAGE: 600                     # flush to disk if oldest record in memory > 10 min
+      ZBX_PROXYOFFLINEBUFFER: 72                        # hours of data kept while server unreachable
+
+      # --- Sync ---
+      ZBX_PROXYCONFIGFREQUENCY: 60                      # seconds; config pull from server (lower while testing)
+      ZBX_DATASENDERFREQUENCY: 1
+
+      # --- Pollers (defaults are fine for a small site; bump as needed) ---
+      ZBX_STARTPINGERS: 2
+      ZBX_STARTDISCOVERERS: 2
+      ZBX_CACHESIZE: 32M
+
+      # --- Hardening ---
+      ZBX_ENABLEREMOTECOMMANDS: 0
+      ZBX_DEBUGLEVEL: 3
+    ports:
+      - "10051:10051"                                 # active agents at this site connect here
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    cap_add:
+      - NET_RAW                                         # ICMP for fping/icmpping
+    volumes:
+      - ./enc:/var/lib/zabbix/enc:ro,z
+      - ./db_data:/var/lib/zabbix/db_data:z               # persists offline buffer across restarts; safe to wipe
+      - ./mibs:/var/lib/zabbix/mibs:ro,z
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

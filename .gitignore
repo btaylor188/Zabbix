@@ -2,3 +2,7 @@
 pgdata/
 letsencrypt/
 _archive/
+proxy/.env
+proxy/enc/
+proxy/db_data/
+*SFConflict*

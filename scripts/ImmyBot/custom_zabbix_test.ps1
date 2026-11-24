@@ -6,7 +6,7 @@
   the injected values.
 
   Task parameters used (names must match the ImmyBot task exactly):
-    HostMetadata        Text      required   client code, e.g. CleverpathIT or K2_Ambassadors (selects host group Clients/<CODE>, case-sensitive)
+    HostMetadata        Text      required   client code, e.g. ContosoIT or Acme_Corp (selects host group Clients/<CODE>, case-sensitive)
     Server              Uri/Text  required   e.g. zabbix.example.com or https://zabbix.example.com
     Hostname            Text      optional   default <ClientCode>-<COMPUTERNAME>
     RefreshActiveChecks Number    optional   default 60 (60-3600)
@@ -60,12 +60,12 @@ if (-not $HostMetadata) {
     Write-Warning 'HostMetadata not supplied: the task parameter is empty for this target.'
     return $false
 }
-# HostMetadata = the client code itself (e.g. CleverpathIT, K2_Ambassadors). Letters, digits, _ and - allowed.
+# HostMetadata = the client code itself (e.g. ContosoIT, Acme_Corp). Letters, digits, _ and - allowed.
 # Legacy Client(s)_<CODE>[-<token>] is checked first and still accepted.
 $ClientCode = if     ($HostMetadata -match '^Clients?_([A-Za-z0-9]+)(?:[-_].*)?$')    { $Matches[1] }
               elseif ($HostMetadata -match '^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$')        { $HostMetadata }
               else                                                                    { $null }
-if (-not $ClientCode) { Write-Warning "HostMetadata '$HostMetadata' is not a client code (letters, digits, _ or -; e.g. K2_Ambassadors); hostname will not be prefixed." }
+if (-not $ClientCode) { Write-Warning "HostMetadata '$HostMetadata' is not a client code (letters, digits, _ or -; e.g. Acme_Corp); hostname will not be prefixed." }
 
 $HostnameOverride = [string](Get-TaskParam 'Hostname')
 if ($HostnameOverride -match '^\s*\$env:COMPUTERNAME\s*$') { $HostnameOverride = '' }
@@ -78,7 +78,7 @@ if ($Refresh -lt 60 -or $Refresh -gt 3600) { throw "RefreshActiveChecks must be 
 $pskRaw    = Get-TaskParam 'EnablePSK' $false
 $EnablePSK = if ($pskRaw -is [string]) { $pskRaw -match '^(true|1|yes)$' } else { [bool]$pskRaw }
 if ($EnablePSK) {
-    if (-not $ClientCode) { throw 'EnablePSK requires HostMetadata to be the client code (letters, digits, _ or -; e.g. K2_Ambassadors); it selects host group Clients/<CODE> (case-sensitive)' }
+    if (-not $ClientCode) { throw 'EnablePSK requires HostMetadata to be the client code (letters, digits, _ or -; e.g. Acme_Corp); it selects host group Clients/<CODE> (case-sensitive)' }
     $ApiUrl   = [string](Get-TaskParam 'ZabbixApiUrl' "https://$ZbxServer/api_jsonrpc.php")
     if ($ApiUrl -notmatch 'api_jsonrpc\.php$') { $ApiUrl = $ApiUrl.TrimEnd('/') + '/api_jsonrpc.php' }
     $ApiToken = ConvertTo-PlainText (Get-TaskParam 'ZabbixApiToken')

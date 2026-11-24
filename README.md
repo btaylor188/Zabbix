@@ -35,7 +35,28 @@ docker compose up -d
 Ports: `80`/`443` (Traefik, web UI) and `10051` (agent/proxy connections). Port 80 must be reachable
 from the internet for the Let's Encrypt HTTP challenge.
 
-## ImmyBot scripts
+## Site proxy (`proxy/`)
+
+Active Zabbix proxy (SQLite) for sites with SNMP/ICMP devices or where agents should buffer through a
+local collector. Outbound-only to the server on `10051`; PSK-encrypted; hybrid memory/disk buffer.
+
+```sh
+./setup.sh                      # prompts for client name -> proxy px-<client>, writes .env, generates PSK
+sudo docker compose up -d
+```
+
+Create the proxy in the frontend (*Administration → Proxies*, mode Active, "Connections from proxy" =
+PSK) with the name, identity and key `setup.sh` prints. Keep the proxy image's major version equal to
+the server's. On SELinux hosts the volume mounts use `:z`. Publish `10051` to the LAN only (agents
+behind the proxy point `Server`/`ServerActive` at it).
+
+## N-able Automation Manager (`scripts/N-able/`)
+
+Equivalent agent deploy/check/uninstall for tenants on N-sight. The `.amp` files are the AM policies;
+the `.ps1` files are the script bodies. Fill in the API URL, token and server **only in the copy you
+upload to AM** — never commit filled-in scripts or `.amp` files.
+
+## ImmyBot scripts (`scripts/ImmyBot/`)
 
 | File | ImmyBot script name | Type | Execution context | Language | Role |
 |---|---|---|---|---|---|

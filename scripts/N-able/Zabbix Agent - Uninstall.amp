@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><Policy ID="2850eb1d-32f8-4780-be76-8a5d2973fc5f" Name="Zabbix Agent - Uninstall" Description="VW5pbnN0YWxsIFphYmJpeCBBZ2VudA==" Version="2.98.5.1" MinRequiredVersion="2.98.5.1" RemoteCategory="0" ExecutionType="Local" MinimumPSVersionRequired="0.0.0">
+  <Object ID="{f346f7bd-12bf-413f-9c70-87f1dcfcaf01}" Type="{B6FA6D8B-EEAA-47A6-8463-7F9A4F5BBB6E}" Data="&lt;xml /&gt;" />
+  <LinkManager xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/PolicyExecutor">
+    <hashset xmlns:d2p1="http://schemas.datacontract.org/2004/07/System" />
+  </LinkManager>
+  <Diagnostics OriginalVersion="2.98.5.1" />
+  <Activity mc:Ignorable="sap sads" x:Class="Policy Builder" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="clr-namespace:PolicyExecutor;assembly=PolicyExecutionEngine" xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <x:Members>
+      <x:Property Name="PolicyGUID" Type="InArgument(x:String)" />
+    </x:Members>
+    <sap:VirtualizedContainerService.HintSize>308,425</sap:VirtualizedContainerService.HintSize>
+    <mva:VisualBasic.Settings>Assembly references and imported namespaces serialized as XML namespaces</mva:VisualBasic.Settings>
+    <p:PolicySequence DisplayName="Policy Builder" sap:VirtualizedContainerService.HintSize="387,818" MinRequiredVersion="2.98.5.1" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+      <p:PolicySequence.Activities>
+        <p:RunPowerShellScript AssemblyName="PolicyExecutionEngine, Version=2.98.5.1, Culture=neutral, PublicKeyToken=null" DisplayName="Run PowerShell 5.1 Script" sap:VirtualizedContainerService.HintSize="351,81" MinRequiredVersion="2.98.5.1" Moniker="3a7ae11c-dd37-4a48-ae1b-134a62f880b7" OutPut_64="[RunPowerShellScript_OutPut_64]" Result="[RunPowerShellScript_Result]" ResultString="[RunPowerShellScript_ResultString]" Results_x64="[RunPowerShellScript_Results_x64]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" TypeName="RunPowerShellScript" genArgEvent="27f100b9-bc0c-4553-83ab-5b29a029ea2b" m_bTextLinkChange="False" script="PAAjAA0ACgAgACAATgAtAGEAYgBsAGUAIABBAHUAdABvAG0AYQB0AGkAbwBuACAATQBhAG4AYQBnAGUAcgAgABQgIABiAG8AZAB5ACAAbwBmACAAdABoAGUAIAAiAFIAdQBuACAAUABvAHcAZQByAFMAaABlAGwAbAAgAFMAYwByAGkAcAB0ACIAIABvAGIAagBlAGMAdAAgAGkAbgAgAHAAbwBsAGkAYwB5ACAAIgBaAGEAYgBiAGkAeAAgAEEAZwBlAG4AdAAgAC0AIABVAG4AaQBuAHMAdABhAGwAbAAiAC4ADQAKACAAIABSAGUAbQBvAHYAZQBzACAAWgBhAGIAYgBpAHgAIABBAGcAZQBuAHQAIAAyACAAYQBuAGQAIABpAHQAcwAgAFAAUwBLAC4AIABEAG8AZQBzACAATgBPAFQAIABkAGUAbABlAHQAZQAgAHQAaABlACAAWgBhAGIAYgBpAHgAIABoAG8AcwB0ACAAKABBAFAASQAgAHUAcwBlAHIAIABoAGEAcwAgAG4AbwAgAGgAbwBzAHQALgBkAGUAbABlAHQAZQApAC4ADQAKAA0ACgAgACAATwBiAGoAZQBjAHQAIABJAE4AUABVAFQAIABwAGEAcgBhAG0AZQB0AGUAcgBzADoAIAAgAG4AbwBuAGUADQAKACAAIABPAGIAagBlAGMAdAAgAE8AVQBUAFAAVQBUACAAcABhAHIAYQBtAGUAdABlAHIAcwA6ACAAWgBiAHgAUwB0AGEAdAB1AHMAIAAoAE8ASwAgAHwAIABGAEEASQBMACkALAAgAFoAYgB4AE0AZQBzAHMAYQBnAGUAIAAoAFMAdAByAGkAbgBnACkADQAKACMAPgANAAoADQAKACQARQByAHIAbwByAEEAYwB0AGkAbwBuAFAAcgBlAGYAZQByAGUAbgBjAGUAIAA9ACAAJwBTAHQAbwBwACcADQAKACQAWgBiAHgAUwB0AGEAdAB1AHMAIAAgAD0AIAAnAEYAQQBJAEwAJwANAAoAJABaAGIAeABNAGUAcwBzAGEAZwBlACAAPQAgACcAbgBvAHQAIAByAHUAbgAnAA0ACgANAAoAZgB1AG4AYwB0AGkAbwBuACAASQBuAHYAbwBrAGUALQBaAGEAYgBiAGkAeABVAG4AaQBuAHMAdABhAGwAbAAgAHsADQAKACAAIAAjACAAUgBlAGEAZAAgAHQAaABlACAANgA0AC0AYgBpAHQAIAB1AG4AaQBuAHMAdABhAGwAbAAgAHYAaQBlAHcAIABlAHgAcABsAGkAYwBpAHQAbAB5ADsAIABBAE0AIABtAGEAeQAgAGgAbwBzAHQAIABQAG8AdwBlAHIAUwBoAGUAbABsACAAYQBzACAAMwAyAC0AYgBpAHQADQAKACAAIAAkAGIAYQBzAGUAIAAgAD0AIABbAE0AaQBjAHIAbwBzAG8AZgB0AC4AVwBpAG4AMwAyAC4AUgBlAGcAaQBzAHQAcgB5AEsAZQB5AF0AOgA6AE8AcABlAG4AQgBhAHMAZQBLAGUAeQAoACcATABvAGMAYQBsAE0AYQBjAGgAaQBuAGUAJwAsACAAJwBSAGUAZwBpAHMAdAByAHkANgA0ACcAKQANAAoAIAAgACQAdQBuACAAIAAgACAAPQAgACQAYgBhAHMAZQAuAE8AcABlAG4AUwB1AGIASwBlAHkAKAAnAFMATwBGAFQAVwBBAFIARQBcAE0AaQBjAHIAbwBzAG8AZgB0AFwAVwBpAG4AZABvAHcAcwBcAEMAdQByAHIAZQBuAHQAVgBlAHIAcwBpAG8AbgBcAFUAbgBpAG4AcwB0AGEAbABsACcAKQANAAoAIAAgACQAYwBvAGQAZQBzACAAPQAgAEAAKABmAG8AcgBlAGEAYwBoACAAKAAkAG4AIABpAG4AIAAkAHUAbgAuAEcAZQB0AFMAdQBiAEsAZQB5AE4AYQBtAGUAcwAoACkAKQAgAHsADQAKACAAIAAgACAAJABrACAAPQAgACQAdQBuAC4ATwBwAGUAbgBTAHUAYgBLAGUAeQAoACQAbgApAA0ACgAgACAAIAAgAGkAZgAgACgAJABrACAALQBhAG4AZAAgACgAJABrAC4ARwBlAHQAVgBhAGwAdQBlACgAJwBEAGkAcwBwAGwAYQB5AE4AYQBtAGUAJwApACAALQBsAGkAawBlACAAJwBaAGEAYgBiAGkAeAAgAEEAZwBlAG4AdAAgADIAKgAnACkAIAAtAGEAbgBkACAAJABuACAALQBtAGEAdABjAGgAIAAnAF4AXAB7AFsAMAAtADkAQQAtAEYAYQAtAGYALQBdACsAXAB9ACQAJwApACAAewAgACQAbgAgAH0ADQAKACAAIAB9ACkADQAKAA0ACgAgACAAZgBvAHIAZQBhAGMAaAAgACgAJABjACAAaQBuACAAJABjAG8AZABlAHMAKQAgAHsADQAKACAAIAAgACAAJABwACAAPQAgAFMAdABhAHIAdAAtAFAAcgBvAGMAZQBzAHMAIAAtAEYAaQBsAGUAUABhAHQAaAAgAG0AcwBpAGUAeABlAGMALgBlAHgAZQAgAC0AQQByAGcAdQBtAGUAbgB0AEwAaQBzAHQAIAAiAC8AeAAgACQAYwAgAC8AcQBuACAALwBuAG8AcgBlAHMAdABhAHIAdAAiACAALQBXAGEAaQB0ACAALQBQAGEAcwBzAFQAaAByAHUADQAKACAAIAAgACAAaQBmACAAKAAkAHAALgBFAHgAaQB0AEMAbwBkAGUAIAAtAG4AbwB0AGkAbgAgADAALAAgADMAMAAxADAALAAgADEANgAwADUAKQAgAHsAIAB0AGgAcgBvAHcAIAAiAG0AcwBpAGUAeABlAGMAIAAvAHgAIAAkAGMAIABlAHgAaQB0ACAAJAAoACQAcAAuAEUAeABpAHQAQwBvAGQAZQApACIAIAB9AA0ACgAgACAAfQANAAoADQAKACAAIAAkAFAARgAgAD0AIABpAGYAIAAoACQAZQBuAHYAOgBQAHIAbwBnAHIAYQBtAFcANgA0ADMAMgApACAAewAgACQAZQBuAHYAOgBQAHIAbwBnAHIAYQBtAFcANgA0ADMAMgAgAH0AIABlAGwAcwBlACAAewAgACQAZQBuAHYAOgBQAHIAbwBnAHIAYQBtAEYAaQBsAGUAcwAgAH0ADQAKACAAIABSAGUAbQBvAHYAZQAtAEkAdABlAG0AIAAtAFAAYQB0AGgAIAAoAEoAbwBpAG4ALQBQAGEAdABoACAAJABQAEYAIAAnAFoAYQBiAGIAaQB4ACAAQQBnAGUAbgB0ACAAMgAnACkAIAAtAFIAZQBjAHUAcgBzAGUAIAAtAEYAbwByAGMAZQAgAC0ARQByAHIAbwByAEEAYwB0AGkAbwBuACAAUwBpAGwAZQBuAHQAbAB5AEMAbwBuAHQAaQBuAHUAZQANAAoAIAAgAHIAZQB0AHUAcgBuACAAIgByAGUAbQBvAHYAZQBkACAAJAAoACQAYwBvAGQAZQBzAC4AQwBvAHUAbgB0ACkAIABwAHIAbwBkAHUAYwB0ACgAcwApACIADQAKAH0ADQAKAA0ACgB0AHIAeQAgAHsADQAKACAAIAAkAFoAYgB4AE0AZQBzAHMAYQBnAGUAIAA9ACAAWwBzAHQAcgBpAG4AZwBdAEAAKABJAG4AdgBvAGsAZQAtAFoAYQBiAGIAaQB4AFUAbgBpAG4AcwB0AGEAbABsACkAWwAtADEAXQANAAoAIAAgACQAWgBiAHgAUwB0AGEAdAB1AHMAIAAgAD0AIAAnAE8ASwAnAA0ACgB9ACAAYwBhAHQAYwBoACAAewANAAoAIAAgACQAWgBiAHgAUwB0AGEAdAB1AHMAIAAgAD0AIAAnAEYAQQBJAEwAJwANAAoAIAAgACQAWgBiAHgATQBlAHMAcwBhAGcAZQAgAD0AIABbAHMAdAByAGkAbgBnAF0AJABfAC4ARQB4AGMAZQBwAHQAaQBvAG4ALgBNAGUAcwBzAGEAZwBlAA0ACgB9AA0ACgA=">
+          <p:RunPowerShellScript.InArgs>
+            <scg:Dictionary x:TypeArguments="x:String, p:InArg" />
+          </p:RunPowerShellScript.InArgs>
+          <p:RunPowerShellScript.OutArgs>
+            <p:OutArg x:Key="ZbxMessage" ArgType="string" DisplayName="ZbxMessage" Name="ZbxMessage">
+              <p:OutArg.Arg>
+                <OutArgument x:TypeArguments="x:String">[RunPowerShellScript_ZbxMessage]</OutArgument>
+              </p:OutArg.Arg>
+            </p:OutArg>
+            <p:OutArg x:Key="ZbxStatus" ArgType="string" DisplayName="ZbxStatus" Name="ZbxStatus">
+              <p:OutArg.Arg>
+                <OutArgument x:TypeArguments="x:String">[RunPowerShellScript_ZbxStatus]</OutArgument>
+              </p:OutArg.Arg>
+            </p:OutArg>
+          </p:RunPowerShellScript.OutArgs>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </p:RunPowerShellScript>
+        <p:IfObject CaseSensitive_Item="{x:Null}" CaseSensitive_ItemProp="{x:Null}" Condition_Item="{x:Null}" Condition_ItemProp="{x:Null}" Value_Item="{x:Null}" Value_ItemProp="{x:Null}" Variable_Item="{x:Null}" Variable_ItemProp="{x:Null}" VerboseOutput_Item="{x:Null}" VerboseOutput_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.98.5.1, Culture=neutral, PublicKeyToken=null" CaseSensitive="False" CaseSensitive_DisplayArg="false" Condition="does not equal" Condition_DisplayArg="does not equal" DisplayName="If" sap:VirtualizedContainerService.HintSize="351,504" MinRequiredVersion="2.19.0.1" Moniker="76189049-e329-49ff-a20d-0828bb298e62" Result="[IfObject_Result]" ResultString="[IfObject_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="None" TypeName="IfObject" Value_DisplayArg="OK" Value_Type="x:String" Variable="[RunPowerShellScript_ZbxStatus]" Variable_DisplayArg="Run PowerShell 5.1 Script.ZbxStatus" Variable_Type="x:String" VerboseOutput="False" VerboseOutput_DisplayArg="" m_bTextLinkChange="False">
+          <p:IfObject.IfOption>
+            <p:SequenceActivity DisplayName="Then" sap:VirtualizedContainerService.HintSize="222,231" Name="SequenceActivity">
+              <p:SequenceActivity.Activities>
+                <p:FailPolicy AssemblyName="PolicyExecutionEngine, Version=2.98.5.1, Culture=neutral, PublicKeyToken=null" DisplayName="Fail Policy" sap:VirtualizedContainerService.HintSize="184,81" MinRequiredVersion="2.10.0.19" Moniker="0b5619de-4ec6-48ab-9fd8-4e2dec065dce" Result="[FailPolicy_Result_1]" ResultString="[FailPolicy_ResultString_1]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="None" TypeName="FailPolicy" m_bTextLinkChange="False">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </p:FailPolicy>
+              </p:SequenceActivity.Activities>
+              <p:SequenceActivity.Variables>
+                <Variable x:TypeArguments="x:String" Name="FailPolicy_ResultString_1" />
+                <Variable x:TypeArguments="x:Double" Name="FailPolicy_Result_1" />
+              </p:SequenceActivity.Variables>
+            </p:SequenceActivity>
+          </p:IfObject.IfOption>
+          <p:IfObject.Value>
+            <InArgument x:TypeArguments="x:Object">
+              <p:ObjectLiteral Value="OK" />
+            </InArgument>
+          </p:IfObject.Value>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </p:IfObject>
+      </p:PolicySequence.Activities>
+      <p:PolicySequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_OutPut_64" />
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_ResultString" />
+        <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="RunPowerShellScript_Results_x64" />
+        <Variable x:TypeArguments="x:Double" Name="RunPowerShellScript_Result" />
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_ZbxMessage" />
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_ZbxStatus" />
+        <Variable x:TypeArguments="x:String" Name="IfObject_ResultString" />
+        <Variable x:TypeArguments="x:Double" Name="IfObject_Result" />
+      </p:PolicySequence.Variables>
+    </p:PolicySequence>
+  </Activity>
+</Policy>
